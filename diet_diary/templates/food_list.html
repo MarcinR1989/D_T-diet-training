@@ -1,0 +1,36 @@
+{%  extends "base.html" %}
+
+{% block content_title %}
+    Food Products <a href="/add_food_product/">Add new!</a>
+{% endblock %}
+
+{% block content %}
+    <table style="width:100%" {{ table_hidden }}>
+        <tr>
+            <th></th>
+            <th colspan="4">per 100 grams</th>
+        </tr>
+        <tr>
+            <th>Food product name</th>
+            <th class="col_width">Protein</th>
+            <th class="col_width">Carbohydrates</th>
+            <th class="col_width">Fat</th>
+            <th class="col_width">kcal</th>
+        </tr>
+        {% for element in food_set %}
+        <tr>
+            <td>{{ element.name }}</td>
+            <td>{{ element.protein_per_100g }}</td>
+            <td>{{ element.carbs_per_100g }}</td>
+            <td>{{ element.fat_per_100g }}</td>
+            <td>{{ element.kcal_per_100g }}</td>
+            <td>
+                <form action='/food_product_list/' method='POST'>
+                    {% csrf_token %}
+                    <button type='submit' name="usuń" value={{ element.id }}>delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

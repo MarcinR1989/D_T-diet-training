@@ -1,0 +1,35 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>D&T: Diet & Training</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'diet_diary/style.css' %}">
+</head>
+
+<body>
+<div class="sidenav">
+    <a href="/">Main</a>
+    <a href="/food_product_list">Food Products</a>
+    <a href="/dishes_list">Dishes</a>
+</div>
+
+<div id="content" class="main">
+    <h1>
+        {% block content_title %}
+            Welcome to your very own diet & training diary
+        {% endblock %}
+    </h1>
+    {% block content_before %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block content_after %}
+    {% endblock %}
+</div>
+</body>
+</html>

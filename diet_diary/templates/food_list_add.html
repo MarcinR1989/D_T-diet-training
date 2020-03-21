@@ -1,0 +1,21 @@
+{% extends "food_list.html" %}
+
+{% block content_before %}
+    <form action='/add_food_product/' method='POST' class="without_bullets">
+        {% csrf_token %}
+{#        {{ form.as_p }}#}
+{#        {% for form in formset %}#}
+            {{ form.as_p }}
+{#        {% endfor %}#}
+        <input type='submit' value='Add' {{ hidden }}>
+    </form>
+{% endblock %}
+
+{% block content_after %}
+    {% if method == "POST" %}
+        <br>
+        <div style="text-align:center">
+        <h1><a href="/food_product_list/">Show all products!</a></h1>
+        </div>
+    {% endif %}
+{% endblock %}

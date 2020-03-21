@@ -1,0 +1,37 @@
+{% extends "dishes_list.html" %}
+
+{% block content_before %}
+    <form action='/add_dish/' method='POST' class="without_bullets" {{ hidden }}>
+        {% csrf_token %}
+        {{ dish_form.as_p }}
+        <table>
+            <tr>
+                <th>Food product</th>
+                <th>Weight</th>
+            </tr>
+            {{ dish_food_formset.management_form }}
+            {% for form in dish_food_formset %}
+            <tr style="width: 1%">
+                <td>{{ form.food_product }}</td>
+                <td>{{ form.food_product_weight }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+{#        {{ formset.1.dish_name }}{{ formset.1.dish_name }} <br>#}
+{#        {{ formset.1.dish_kcal }} <br>#}
+{#        {{ formset.1.food_product }}#}
+{#        {{ formset.1.food_product_weight }} <br>#}
+{#        {% for form in formset %}#}
+{#        {% endfor %}#}
+        <input type='submit' value='Add'>
+    </form>
+{% endblock %}
+
+{% block content_after %}
+    {% if method == "POST" %}
+        <br>
+        <div style="text-align:center">
+        <h1><a href="/dishes_list/">Show all dishes!</a></h1>
+        </div>
+    {% endif %}
+{% endblock %}
