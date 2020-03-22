@@ -11,11 +11,30 @@
 
 <body>
 <div class="sidenav">
-    <a href="/">Main</a>
-    <a href="/food_product_list">Food Products</a>
+    <a href="/">Main</a><br>
+    <a href="/food_product_list">Food products</a>
     <a href="/dishes_list">Dishes</a>
-</div>
+    <a href="/dish_plan_list">Dish plan</a><br>
+    <a href="/training_list">Trainings</a>
+    <a href="/training_types_list">Trainings types</a>
+    <a href="/training_plan_list">Training plan</a><br>
+    <a href="/contact">Contact</a>
 
+
+</div>
+<div style="float: right;">
+    {% if user.is_authenticated %}
+        User {{ user }}
+        <button>
+            <a href="/logout">Wyloguj</a>
+        </button>
+    {% else %}
+        <button>
+            <a href="/login">Zaloguj</a>
+        </button>
+    {% endif %}
+
+</div>
 <div id="content" class="main">
     <h1>
         {% block content_title %}
@@ -30,6 +49,8 @@
 
     {% block content_after %}
     {% endblock %}
+
+
 </div>
 </body>
 </html>

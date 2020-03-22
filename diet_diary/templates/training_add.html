@@ -1,0 +1,18 @@
+{% extends "training_list.html" %}
+
+{% block content_before %}
+    <form action='/training_add/' method='POST' {{ hidden }}>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value='Add'>
+    </form>
+{% endblock %}
+
+{% block content_after %}
+    {% if method == "POST" %}
+        <br>
+        <div style="text-align:center">
+        <h1><a href="/training_list/">Show all trainings!</a></h1>
+        </div>
+    {% endif %}
+{% endblock %}

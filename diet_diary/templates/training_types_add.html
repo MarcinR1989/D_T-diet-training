@@ -1,9 +1,9 @@
-{% extends "dishes_list.html" %}
+{% extends "training_plan_list.html" %}
 
 {% block content_before %}
-    <form action='/add_dish/' method='POST' {{ hidden }}>
+    <form action='/training_types_add/' method='POST' {{ hidden }}>
         {% csrf_token %}
-        {{ dish_form.as_p }}
+        {{ form.as_p }}
         <table>
             <tr>
                 <th>Food product</th>
@@ -25,7 +25,7 @@
     {% if method == "POST" %}
         <br>
         <div style="text-align:center">
-        <h1><a href="/dishes_list/">Show all dishes!</a></h1>
+        <h1><a href="/training_types_list/">Show all training types!</a></h1>
         </div>
     {% endif %}
 {% endblock %}

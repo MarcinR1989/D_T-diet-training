@@ -1,0 +1,42 @@
+{%  extends "base.html" %}
+
+{% block content %}
+    <table style="width: 45%; display: inline-flex;">
+        <tr>
+            <th colspan="3" class="col_width">Diet Plan</th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+        {% for dish in diet_plan %}
+            <tr>
+                <td align="center" class="col_width">{{ dish.dish.name }}</td>
+                <td align="center" class="col_width">{{ dish.date }}</td>
+                <td align="center" class="col_width">{{ dish.time }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <table style="width: 45%; display: inline-flex;">
+        <tr>
+            <th colspan="3" class="col_width">Training Plan</th>
+        </tr>
+        <tr>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Time</th>
+        </tr>
+
+        {% for training in training_plan %}
+            <tr>
+                <td align="center" class="col_width">{{ training.training.name }}</td>
+                <td align="center" class="col_width">{{ training.date }}</td>
+                <td align="center" class="col_width">{{ training.time }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+{% endblock %}

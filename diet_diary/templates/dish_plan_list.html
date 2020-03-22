@@ -1,0 +1,30 @@
+{%  extends "base.html" %}
+
+{% block content_title %}
+    Dish list <a href="/dish_plan_add/">Add new!</a>
+{% endblock %}
+
+{% block content %}
+    <table style="width:100%" {{ table_hidden }}>
+        <tr>
+            <th align="left">Dish name</th>
+            <th align="left">Date</th>
+            <th align="left">Time</th>
+            <th align="left">Notes</th>
+        </tr>
+        {% for element in db_elements %}
+        <tr>
+            <td>{{ element.dish }}</td>
+            <td>{{ element.date }}</td>
+            <td>{{ element.time }}</td>
+            <td>{{ element.notes }}</td>
+            <td>
+                <form action='/dish_plan_list/' method='POST'>
+                    {% csrf_token %}
+                    <button type='submit' name="usuń" value={{ element.id }}>delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

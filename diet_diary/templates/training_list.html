@@ -1,0 +1,29 @@
+{%  extends "base.html" %}
+
+{% block content_title %}
+    Trainings <a href="/training_add/">Add new!</a>
+{% endblock %}
+
+{% block content %}
+    <table style="width:100%" {{ table_hidden }}>
+        <tr>
+            <th align="left">Name</th>
+            <th class="col_width">Type</th>
+            <th class="col_width">Duration[min]</th>
+        </tr>
+        {% for element in db_elements %}
+        <tr>
+            <td>{{ element.name }}</td>
+            <td align="center">{{ element.type }}</td>
+            <td align="center">{{ element.duration }}</td>
+            <td align="center">{{ element.notes }}</td>
+            <td>
+                <form action='/training_list/' method='POST'>
+                    {% csrf_token %}
+                    <button type='submit' name="usuń" value={{ element.id }}>delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

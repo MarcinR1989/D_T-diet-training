@@ -18,6 +18,15 @@
     display: block;
 }
 
+.sidenav h1 {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+}
+
+
 .sidenav a:hover {
     color: #f1f1f1;
 }
@@ -43,4 +52,52 @@ button a {
 
 .without_bullets ul {
     list-style-type: none;
+}
+
+/* --__CONTACT SECTION__-- */
+* {
+  box-sizing: border-box;
+}
+
+/*!* Style inputs *!*/
+/*input[type=text], select, textarea {*/
+/*  width: 100%;*/
+/*  padding: 12px;*/
+/*  border: 1px solid #ccc;*/
+/*  margin-top: 6px;*/
+/*  margin-bottom: 16px;*/
+/*  resize: vertical;*/
+/*}*/
+
+/*input[type=submit] {*/
+/*  background-color: #111;*/
+/*  color: #818181;*/
+/*  padding: 12px 20px;*/
+/*  border: none;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*input[type=submit]:hover {*/
+/*  background-color: #45a049;*/
+/*}*/
+
+/* Style the container/contact section */
+.container {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/* Create two columns that float next to eachother */
+.column {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }

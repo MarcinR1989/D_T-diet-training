@@ -20,10 +20,10 @@
         {% for element in food_set %}
         <tr>
             <td>{{ element.name }}</td>
-            <td>{{ element.protein_per_100g }}</td>
-            <td>{{ element.carbs_per_100g }}</td>
-            <td>{{ element.fat_per_100g }}</td>
-            <td>{{ element.kcal_per_100g }}</td>
+            <td align="center">{{ element.protein_per_100g }}</td>
+            <td align="center">{{ element.carbs_per_100g }}</td>
+            <td align="center">{{ element.fat_per_100g }}</td>
+            <td align="center">{{ element.kcal_per_100g }}</td>
             <td>
                 <form action='/food_product_list/' method='POST'>
                     {% csrf_token %}

@@ -1,0 +1,24 @@
+{%  extends "base.html" %}
+
+{% block content_title %}
+    Training types <a href="/training_types_add/">Add new!</a>
+{% endblock %}
+
+{% block content %}
+    <table style="width:100%" {{ table_hidden }}>
+        <tr>
+            <th align="left">Training type</th>
+        </tr>
+        {% for element in db_elements %}
+        <tr>
+            <td>{{ element.training_type }}</td>
+            <td>
+                <form action='/training_types_list/' method='POST'>
+                    {% csrf_token %}
+                    <button type='submit' name="usuń" value={{ element.id }}>delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
