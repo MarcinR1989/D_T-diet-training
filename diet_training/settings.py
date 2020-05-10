@@ -74,15 +74,22 @@ WSGI_APPLICATION = 'diet_training.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'HOST': '127.0.0.1',
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'diet_training',
+#         'USER': 'postgres',
+#         'PASSWORD': 'coderslab',
+#     }
+# }
 DATABASES = {
     'default': {
-        'HOST': '127.0.0.1',
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'diet_training',
-        'USER': 'postgres',
-        'PASSWORD': 'coderslab',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
 
 
 # Password validation

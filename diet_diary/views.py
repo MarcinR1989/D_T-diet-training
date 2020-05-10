@@ -190,6 +190,7 @@ class AddTrainingView(View):
 
     def post(self, request):
         form = AddTrainingForm(request.POST)
+        print(request.POST)
         if form.is_valid():
             new_added = Training.objects.create(
                 name=form.cleaned_data['name'],
@@ -346,7 +347,7 @@ class LoginView(View):
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)
-                return HttpResponse("Logged in")
+                return redirect('/')
             else:
                 return HttpResponse('Wrong password or login.')
         else:
